@@ -28,7 +28,7 @@ describe('NoteDataService', () => {
         mockNote = mockNoteObject;
     });
 
-    it('should get all notes', (done: DoneFn) => {
+    it('should get all notes when getAll is called', (done: DoneFn) => {
         httpClientSpy.get.and.returnValue(of(mockNotes));
         noteDataService.getAll().subscribe({
             next: (notes) => {
@@ -42,7 +42,7 @@ describe('NoteDataService', () => {
         expect(httpClientSpy.get).toHaveBeenCalledTimes(1);
     });
 
-    it('should update a note', () => {
+    it('should update a note when updateNote is called', () => {
         let mockNote = mockNoteObject;
         httpClientSpy.put.and.returnValue(of(mockNote));
 
@@ -54,7 +54,7 @@ describe('NoteDataService', () => {
         expect(httpClientSpy.put).toHaveBeenCalledTimes(1);
     });
 
-    it('should add a note', () => {
+    it('should add a note when addNote is called', () => {
     });
 
     xit('delete should make a DELETE HTTP request with id appended to end of url', () => {
