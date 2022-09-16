@@ -24,8 +24,6 @@ export class NotePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllNotes();
-
-    console.log("note query:", this.noteQuery.userId);
   }
 
   getAllNotes() {
