@@ -32,9 +32,9 @@ Also to include some unit testing.
 
 ## Tools and technologies Used
 
-Angular
-TypeScript
-Scss
+- Angular
+- TypeScript
+- Scss
 
 ## The approach
 
@@ -62,6 +62,8 @@ By default, the user ID is 0. But please feel free to add different user ids to 
 As for testing, it took a bit of research for me to understand more as, before this, I hadn't tested in a while.
 I could have probably tested more, probably the service in particular. 
 I think I could have organised the test files a bit cleaner. I did try to use the arrange, act, assert method when testing.
+I wasn't able to finish the testing and, admittedly, I didn't understand some aspects but I am determined to understand it more. 
+For this application, I will try to finish the testing, especially fully testing the service.
 
 I did definitely enjoy learning more about testing. Although I probably made some mistakes with testing, I will definitely look to 
 improve my testing abilities. 
