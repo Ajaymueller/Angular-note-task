@@ -32,9 +32,9 @@ Also to include some unit testing.
 
 ## Tools and technologies Used
 
-Angular
-TypeScript
-Scss
+- Angular
+- TypeScript
+- Scss
 
 ## The approach
 
