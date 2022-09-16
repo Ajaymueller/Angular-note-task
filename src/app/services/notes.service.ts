@@ -12,7 +12,7 @@ export class NoteDataService {
 
     getAll(): Observable<NoteModel[]> { return this.http.get<NoteModel[]>(this.url); }
 
-    getNoteByUserId(userId: Number): Observable<NoteModel[]> { return this.http.get<NoteModel[]>(`${this.url}?userId=${userId}`); }
+    getNoteByUserId(userId: Number): Observable<NoteModel[]> { return this.http.get<NoteModel[]>(`http://localhost:3000/notess?userId=${userId}`); }
 
     addNote(note: NoteModel) { return this.http.post<NoteModel>(this.url, note); }
 

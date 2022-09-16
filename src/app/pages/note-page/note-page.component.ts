@@ -17,7 +17,7 @@ export class NotePageComponent implements OnInit {
   noteQuery: NoteQueryModel = new NoteQueryModel;
   users: Array<Number> = new Array<Number>();
   searchTerm: string = "";
-  error: string = '';
+  error: string = null;
   subs: Subscription[] = [];
 
   constructor(private noteDataService: NoteDataService) { }
@@ -27,6 +27,7 @@ export class NotePageComponent implements OnInit {
   }
 
   getAllNotes() {
+    this.error = "";
     this.subs.push(
       this.noteDataService.getAll().subscribe(notes => {
         this.notes = notes;
@@ -34,7 +35,7 @@ export class NotePageComponent implements OnInit {
         this.refreshQuery();
       },
         error => {
-          this.error = error;
+          this.error = error.message;
         })
     )
   };
@@ -47,7 +48,7 @@ export class NotePageComponent implements OnInit {
           this.getAllNotes();
         },
           error => {
-            this.error = error;
+            this.error = error.message;
           })
       )
     }
@@ -58,7 +59,7 @@ export class NotePageComponent implements OnInit {
       this.noteDataService.updateNote(note, note.id).subscribe(note => {
         this.note = note;
       }, error => {
-        this.error = error;
+        this.error = error.message;
       }))
   };
 
@@ -67,7 +68,7 @@ export class NotePageComponent implements OnInit {
       this.noteDataService.addNote(note).subscribe(note => {
         this.closeModal();
       }, error => {
-        this.error = error;
+        this.error = error.message;
       }))
   }
 
@@ -97,6 +98,8 @@ export class NotePageComponent implements OnInit {
     if (!isNaN(userId)) {
       this.noteDataService.getNoteByUserId(this.noteQuery.userId).subscribe(notes => {
         this.notes = notes;
+      }, error => {
+        this.error = error.message;
       })
     }
   }

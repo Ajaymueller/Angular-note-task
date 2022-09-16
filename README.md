@@ -12,7 +12,9 @@ Once cloned down, install dependencies - npm intall
 
 Run the project - npm start 
 
-Run the json server - json-server --watch db.json
+Run the json server - json-server --watch db.json (if you do want access to the server)
+
+*Please note* you may have to run 'npm install -g json-server' to get the json server running
 
 Run the tests - npm test 
 
