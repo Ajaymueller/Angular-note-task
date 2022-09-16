@@ -1,0 +1,23 @@
+<div class="modal">
+    <div class="modal-content">
+        <div><span class="close-button" (click)="closeModal()" id="close-modal-btn">&times;</span></div>
+        <form name="form">
+            <div class="note-title">
+                <div>
+                    <label>Title</label>
+                </div>
+                <input class="form-control" type="text" [(ngModel)]="note.title" name="title" #title>
+            </div>
+            <div class="note-body">
+                <label>Body</label>
+                <div>
+                    <textarea class="form-control" type="text" [(ngModel)]="note.body" name="body" #body></textarea>
+                </div>
+            </div>
+            <div *ngIf="isAddNewNote" class="note-btn-container">
+                <button (click)="emitNoteToBeAdded()" [disabled]="!note.title" id="create-note-btn">Create Note</button>
+            </div>
+
+        </form>
+    </div>
+</div>

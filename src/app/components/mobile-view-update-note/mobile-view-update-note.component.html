@@ -1,0 +1,21 @@
+<div>
+    <div class="note-content">
+        <div class="note-title">
+            <label>Title</label>
+            <div>
+                <input class="form-control" type="text" name="title" [(ngModel)]="note.title" [value]="note.title"
+                    #title>
+            </div>
+        </div>
+        <div class="note-body">
+            <label>Body</label>
+            <div>
+                <textarea class="form-control" type="text" [(ngModel)]="note.body" name="body" #body></textarea>
+            </div>
+        </div>
+        <div class="note-btn-container">
+            <button (click)="updateNote()" [disabled]="!note.title" id="update-note-button">Update Note</button>
+            <button (click)="deleteNote()" id="delete-note-button">Delete Note</button>
+        </div>
+    </div>
+</div>

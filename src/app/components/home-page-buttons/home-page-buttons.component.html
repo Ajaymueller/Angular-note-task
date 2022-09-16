@@ -1,0 +1,22 @@
+<div class="button-container" role="main">
+
+  <div class="card-container">
+    <button class="btn" (click)="activateButton()">
+      <span *ngIf="!showChangeUserDropdown" id="change-user-btn">Change User</span>
+      <span *ngIf="showChangeUserDropdown" id="view-note-btn">View All Notes</span>
+    </button>
+
+    <select *ngIf="showChangeUserDropdown" name="userIds" (change)="userIdChanged($event)" id="userDropdown">
+      <option>Choose user</option>
+      <option *ngFor="let userId of users" [value]="userId">
+        {{ userId }}
+      </option>
+    </select>
+
+    <button class="btn" (click)="addNoteEmit()">
+      <span>Create a Note</span>
+    </button>
+
+  </div>
+
+</div>

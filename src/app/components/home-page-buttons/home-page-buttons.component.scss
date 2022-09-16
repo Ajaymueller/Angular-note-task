@@ -1,0 +1,16 @@
+@import '../../../main-styles.scss';
+
+.button-container {
+    padding: $small-spacing;
+    @include flexStyle(row, space-evenly);
+
+    .btn {
+        margin: $small-spacing;
+        padding: $small-spacing;
+        @include buttonStyle;
+
+        span {
+            font-size: $button-font-size;
+        }
+    }
+}

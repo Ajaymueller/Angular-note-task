@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="layout-box">
+
+  <div class="main-container">
+
+    <app-home-page-buttons (addNote)="isAddNote()" [users]="users" (userIdEmit)="getNotesForUser($event)"
+      (viewAllNotesEmit)="getAllNotes()">
+    </app-home-page-buttons>
+
+    <div class="viewing-notes-div">
+      Notes for
+      <span *ngIf="!noteQuery.userId">all users</span>
+      <span *ngIf="noteQuery.userId">User ID Of {{ noteQuery.userId }}</span>
+    </div>
+
+    <app-filter (searchValueEmit)="setSearchTerm($event)"></app-filter>
+    <app-note-card [notes]="notes" [searchTerm]="searchTerm" (noteToDelete)="receiveNoteToDelete($event)"
+      (noteToEdit)="receiveNoteToUpdate($event)">
+    </app-note-card>
+
+  </div>
+
+</div>
+
+<app-note-modal *ngIf="showModal" (success)="closeModal()" [note]="note" (noteToBeAdded)="receiveNoteToAdd($event)"
+  (noteToBeUpdated)="receiveNoteToUpdate($event)">
+</app-note-modal>

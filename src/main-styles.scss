@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+$blue: #1976d2;
+$white: #FFFFFF;
+$red: #FF0000;
+$black: #000000;
+$modalColour: rgba(0, 0, 0, 0.5);
+
+$button-font-size: 20px;
+$font-size: 22px;
+$larger-font-size: 24px;
+$small-spacing: 10px;
+$medium-spacing: 20px;
+
+html,
+body {
+    height: 100%;
+    font-size: $font-size !important;
+    overflow: hidden !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+@mixin buttonStyle {
+    border-radius: 2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color: $white;
+    background-color: #4eb5f1;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    :hover {
+        background-color: #4095c6;
+    }
+}
+
+@mixin flexStyle($flex-direction, $justify-content) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+}

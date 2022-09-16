@@ -1,0 +1,38 @@
+@import '../../../main-styles.scss';
+
+.note-content {
+    padding: 25px;
+
+    .note-title {
+        font-size: 22px;
+        font-weight: bold;
+        overflow: hidden;
+    }
+
+    .note-body {
+        color: #555;
+        position: relative;
+        max-height: 80px;
+        overflow: hidden;
+    }
+
+    input,
+    textarea {
+        width: 75%;
+    }
+
+    .note-body,
+    .note-title,
+    .note-btn-container {
+        padding: 10px;
+    }
+
+    .form-control {
+        margin-top: 10px;
+    }
+
+    .note-btn-container button {
+        @include buttonStyle;
+        margin-right: 10px;
+    }
+}

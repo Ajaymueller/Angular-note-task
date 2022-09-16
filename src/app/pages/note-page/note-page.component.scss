@@ -1,0 +1,27 @@
+@import '../../../main-styles.scss';
+
+.layout-box {
+    @include flexStyle(column, flex-start);
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.notes-list {
+    flex-grow: 1;
+    margin-top: 35px;
+}
+
+.main-container {
+    @include flexStyle(column, flex-start);
+    max-width: 500px;
+    margin: auto;
+    padding-top: 50px;
+    margin-top: 20px;
+    align-self: center;
+    width: 85%;
+
+    .viewing-notes-div {
+        text-align: center;
+    }
+}

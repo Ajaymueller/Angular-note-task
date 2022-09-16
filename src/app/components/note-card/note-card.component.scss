@@ -1,0 +1,76 @@
+@import '../../../main-styles.scss';
+
+.note-card-container {
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 15px 2px rgba($black, 0.068);
+    transition: box-shadow 0.2s ease-out;
+    position: relative;
+    margin-bottom: $medium-spacing;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 4px rgba($black, 0.068);
+
+        .delete-button {
+            opacity: 1;
+            transition-delay: 0.30s;
+            transform: scale(1);
+        }
+    }
+
+    .note-content {
+        padding: 25px;
+
+        .note-title {
+            font-size: $font-size;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .note-body {
+            color: #555;
+            position: relative;
+            max-height: 80px;
+            overflow: hidden;
+
+            .fade {
+                position: absolute;
+                bottom: 0;
+                height: 50%;
+                width: 100%;
+                background: linear-gradient(to bottom, rgba($white, 0) 0%, rgba($white, 0.0), 50%, $white 100%);
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.delete-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    height: 34px;
+    width: 34px;
+    border-radius: 4px;
+    background-color: $red;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    transform: scale(0.35);
+
+    .delete-icon {
+        $larger-font-size: 24px;
+        display: flex;
+        justify-content: center;
+        padding-top: 4px;
+    }
+
+    &:hover {
+        background-color: darken($red, 2%);
+    }
+
+    &:active {
+        background-color: darken($red, 4%);
+    }
+}

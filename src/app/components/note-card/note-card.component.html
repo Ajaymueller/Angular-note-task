@@ -1,0 +1,16 @@
+<div>
+  <div class="note-card-container" *ngFor="let note of notes | myFilter:searchTerm:['title', 'body']">
+    <div class="note-content" (click)="emitCurrentNoteToModal(note)" id="note-card-content">
+      <h1 class="note-title">{{ note.title }}</h1>
+      <div class="note-body">
+        <p> {{ note.body }}</p>
+        <div class="fade">
+        </div>
+      </div>
+    </div>
+
+    <div class="delete-button" (click)="emitNoteToDelete(note);" id="delete-button-id">
+      <i class="fa fa-times delete-icon"></i>
+    </div>
+  </div>
+</div>
