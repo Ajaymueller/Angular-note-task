@@ -12,6 +12,7 @@ import { NoteDataService } from 'src/app/services/notes.service';
 export class NotePageComponent implements OnInit {
 
   showModal: boolean = false;
+  isUpdateNote: boolean = false;
   notes: Array<NoteModel> = new Array<NoteModel>();
   note: NoteModel = new NoteModel();
   noteQuery: NoteQueryModel = new NoteQueryModel;
@@ -28,16 +29,17 @@ export class NotePageComponent implements OnInit {
 
   getAllNotes() {
     this.error = "";
-    this.subs.push(
       this.noteDataService.getAll().subscribe(notes => {
         this.notes = notes;
-        this.getUsers();
+        if (this.showModal) {
+          this.showModal = false;
+        };
         this.refreshQuery();
+        this.getUsers();
       },
         error => {
           this.error = error.message;
         })
-    )
   };
 
   deleteNote(note: NoteModel) {
@@ -58,6 +60,7 @@ export class NotePageComponent implements OnInit {
     this.subs.push(
       this.noteDataService.updateNote(note, note.id).subscribe(note => {
         this.note = note;
+        this.getAllNotes();
       }, error => {
         this.error = error.message;
       }))
@@ -66,7 +69,7 @@ export class NotePageComponent implements OnInit {
   addNote(note: NoteModel) {
     this.subs.push(
       this.noteDataService.addNote(note).subscribe(note => {
-        this.closeModal();
+        this.getAllNotes();
       }, error => {
         this.error = error.message;
       }))
@@ -84,8 +87,9 @@ export class NotePageComponent implements OnInit {
   }
 
   closeModal() {
-    this.showModal = false;
-    this.getAllNotes();
+    if(this.isUpdateNote) {
+      this.updateNote(this.note)
+    };
   }
 
   isAddNote() {
@@ -112,7 +116,7 @@ export class NotePageComponent implements OnInit {
   receiveNoteToUpdate(note: NoteModel) {
     this.note = note;
     this.showModal = true;
-    this.updateNote(this.note);
+    this.isUpdateNote = true;
   }
 
   receiveNoteToAdd(note: NoteModel) {

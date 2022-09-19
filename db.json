@@ -4,32 +4,25 @@
       "title": "test note",
       "body": "test note body",
       "userId": 0,
-      "_mobileView": false,
-      "id": 1
+      "id": 5
     },
     {
       "title": "test note 1",
       "body": "test note body 1",
-      "userId": 1,
-      "id": 2
+      "userId": 0,
+      "id": 6
     },
     {
       "title": "test note 2",
       "body": "test note body 2",
-      "userId": 2,
-      "id": 3
+      "userId": 1,
+      "id": 7
     },
     {
       "title": "test note 3",
       "body": "test note body 3",
       "userId": 2,
-      "id": 4
-    },
-    {
-      "title": "fggtr",
-      "body": "gttrg",
-      "userId": 0,
-      "id": 5
+      "id": 7
     }
   ]
 }
