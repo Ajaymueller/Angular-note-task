@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoteModalComponent } from './note-modal.component';
 import { DebugElement } from '@angular/core';
+import { mockNoteObject } from 'src/app/mocks/mockNotes.class';
+import { NoteModel } from 'src/app/models/note-model.class';
 
 describe('NoteModalComponent', () => {
   let component: NoteModalComponent;
@@ -9,7 +11,7 @@ describe('NoteModalComponent', () => {
   let mockNote;
 
   beforeEach(async () => {
-    mockNote = { id: 1, title: "test note", body: "test note body", userId: 0 };
+    mockNote = mockNoteObject as NoteModel;
 
     await TestBed.configureTestingModule({
       declarations: [NoteModalComponent],

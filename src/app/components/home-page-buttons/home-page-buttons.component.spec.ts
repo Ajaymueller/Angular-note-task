@@ -64,7 +64,6 @@ describe('HomePageButtonsComponent', () => {
     // fixture.detectChanges();
     fixture.whenStable().then(() => {
       const dropdown = de.nativeElement.querySelector('#userDropdown');
-      console.log("dropdown aidan:", dropdown);
       // expect(dropdown).not.toBeNull();
     })
   });

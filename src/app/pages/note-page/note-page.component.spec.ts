@@ -1,6 +1,8 @@
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs/internal/observable/of';
+import { mockNotesArray, mockNoteObject } from 'src/app/mocks/mockNotes.class';
+import { NoteModel } from 'src/app/models/note-model.class';
 import { NoteDataService } from 'src/app/services/notes.service';
 
 import { NotePageComponent } from './note-page.component';
@@ -8,19 +10,15 @@ import { NotePageComponent } from './note-page.component';
 describe('NotePageComponent', () => {
   let component: NotePageComponent;
   let fixture: ComponentFixture<NotePageComponent>;
-  let de: DebugElement;
-  let notes;
+  let mockNotes;
   let mockNote;
   let stubNoteService: jasmine.SpyObj<NoteDataService>;
 
   beforeEach(async () => {
     stubNoteService = jasmine.createSpyObj('NotesService', ['getAll', 'getNoteByUserId', 'addNote', 'updateNote', 'deleteNote']);
-    notes = [
-      { id: 1, title: "test note", body: "test note body", userId: 0 },
-      { id: 2, title: "test note 1", body: "test note body 1", userId: 1 }
-    ];
 
-    mockNote = { id: 1, title: "test note", body: "test note body", userId: 0 };
+    mockNotes = mockNotesArray as Array<NoteModel>;
+    mockNote = mockNoteObject as NoteModel;
 
     await TestBed.configureTestingModule({
       declarations: [NotePageComponent],
@@ -32,11 +30,11 @@ describe('NotePageComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NotePageComponent);
-    stubNoteService.getAll.and.returnValue(of(notes));
+    stubNoteService.getAll.and.returnValue(of(mockNotes));
     stubNoteService.updateNote.and.returnValue(of(mockNote));
     stubNoteService.addNote.and.returnValue(of(mockNote));
-    stubNoteService.getNoteByUserId.and.returnValue(of(notes));
-    // stubNoteService.deleteNote.and.returnValue(of(mockNote.id));
+    stubNoteService.getNoteByUserId.and.returnValue(of(mockNotes));
+    stubNoteService.deleteNote.and.returnValue(of());
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -83,6 +81,13 @@ describe('NotePageComponent', () => {
 
     expect(stubNoteService.updateNote).toHaveBeenCalled();
   });
+
+  // it('deleteNote function should delete a note', () => {
+  //   component.note = mockNote;
+  //   component.deleteNote(mockNote);
+
+  //   expect(component.note).toBeNull();
+  // });
 
   it('addNote function should add a note', () => {
     component.notes = [];
