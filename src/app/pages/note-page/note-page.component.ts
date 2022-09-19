@@ -101,11 +101,12 @@ export class NotePageComponent implements OnInit {
   getNotesForUser(userId) {
     this.noteQuery.userId = userId;
     if (!isNaN(userId)) {
+      this.subs.push(
       this.noteDataService.getNoteByUserId(this.noteQuery.userId).subscribe(notes => {
         this.notes = notes;
       }, error => {
         this.error = error.message;
-      })
+      }));
     }
   }
 
