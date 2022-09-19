@@ -15,14 +15,14 @@
     {
       "title": "test note 2",
       "body": "test note body 2",
-      "userId": 1,
+      "userId": 2,
       "id": 7
     },
     {
       "title": "test note 3",
       "body": "test note body 3",
       "userId": 2,
-      "id": 7
+      "id": 8
     }
   ]
 }

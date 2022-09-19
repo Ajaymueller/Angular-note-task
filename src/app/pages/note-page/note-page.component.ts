@@ -29,6 +29,7 @@ export class NotePageComponent implements OnInit {
 
   getAllNotes() {
     this.error = "";
+    this.subs.push(
       this.noteDataService.getAll().subscribe(notes => {
         this.notes = notes;
         if (this.showModal) {
@@ -39,7 +40,7 @@ export class NotePageComponent implements OnInit {
       },
         error => {
           this.error = error.message;
-        })
+        }));
   };
 
   deleteNote(note: NoteModel) {
